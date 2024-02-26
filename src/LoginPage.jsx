@@ -18,10 +18,14 @@ function LoginPage({onLogin}) {
         username,
         password,
       });
-      const data = response.data;
+      const payload = response.data;
       // Assuming the response contains user data and an access token
-      const { firstname, lastname, apikey } = data;
-      console.log(data);
+     
+      const { data } = payload;
+      const {user} = data;
+      console.log(user);
+    const { firstname, lastname, apikey } = user;
+      console.log(firstname + " " + lastname);
       
       // Store the access token in local storage for future requests
       console.log(apikey);

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import QueryPage from './QueryPage';
+import DataGridPage from './dataGridPage';
 import { AppBar, Toolbar, Button, Typography } from '@mui/material';
 import QueryUsersPage from './QueryUsers';
 
@@ -35,6 +36,7 @@ function App() {
             <Button component={Link} to="/admin" color="inherit" disabled={!isLoggedIn}>Admin</Button>
             <Button component={Link} to="/mywork" color="inherit" disabled={!isLoggedIn}>My Work</Button>
             <Button component={Link} to="/users" color="inherit" disabled={!isLoggedIn}>List Users</Button>
+            <Button component={Link} to="/data" color="inherit" disabled={!isLoggedIn}>Data Grid</Button>
           </Toolbar>
         </AppBar>
       <Routes>
@@ -42,6 +44,8 @@ function App() {
         <Route path="/login" element={   <LoginPage onLogin={handleLogin} />} />
         <Route path="/query" element={<QueryPage />} />
         <Route path="/users" element={<QueryUsersPage />} />
+        <Route path="/data" element={<DataGridPage />} />
+
       </Routes>
       </div>
     </Router>

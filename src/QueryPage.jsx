@@ -17,7 +17,8 @@ function QueryPage() {
           Authorization: `Bearer ${apiKey}`,
         },
       });
-      setUserData(response.data);
+      
+      setUserData(response.data.data);
       setError('');
     } catch (error) {
       setUserData(null);
