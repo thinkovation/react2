@@ -18,7 +18,6 @@ function App() {
   };
   const handleLogin = () => {
     // Perform login logic here, and if successful, set isLoggedIn to true
-    alert("App.js handle login called");
     setIsLoggedIn(true);
   };
   return (

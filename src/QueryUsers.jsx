@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Typography, TextField, Button, Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper, InputAdornment } from '@mui/material';
 import axios from 'axios';
 
+/** This component  */
 function QueryUsersPage() {
   const [usersList, setUsersList] = useState([]);
   const [error, setError] = useState('');
@@ -14,7 +15,7 @@ function QueryUsersPage() {
           Authorization: `Bearer ${apiKey}`,
         },
       });
-      setUsersList(response.data);
+      setUsersList(response.data.data);
       setError('');
     } catch (error) {
       setUsersList([]);
@@ -66,9 +67,9 @@ function QueryUsersPage() {
               {usersList.map((user,index) => (
                 <TableRow key={user.uid} onClick={() => handleRowClick(user.uid)} style={{ cursor: 'pointer', backgroundColor: index % 2 === 0 ? 'white' : '#f5f5f5' }}>
                
-                  <TableCell>{user.uid}</TableCell>
-                  <TableCell>{user.firstname}</TableCell>
-                  <TableCell>{user.lastname}</TableCell>
+                  <TableCell>{user.id}</TableCell>
+                  <TableCell>{user.firstName}</TableCell>
+                  <TableCell>{user.lastName}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
